@@ -1,48 +1,4 @@
-# SPDX-License-Identifier: CC0-1.0
-# this software released into the public domain under CC0 1.0
 
-# It follows the equations in the previous chapter.
-# It prints - to the Python console - tab-delimited output that can be
-# copy and pasted into any spreadsheet.
-
-from math import degrees, radians, tan, sin, asin, cos, sqrt
-Obliquity             = 23.43  # degrees
-Latitude              = 51.75  # degrees
-Capric_r              = 10     # radius of Tympanum
-Amulcantar_division   = 15     # Amulcantar every n degrees
-Azimuth_division      = 15     # Azimuth every n degree
-Ecliptic_Circle_Width = 1      #  something around 5-10% of Capric_r 
-
-# These are the Right Ascension & Declinations of the 14 brightest stars 
-# in the Northern Hemishpere
-Stars = [
-['Altair',297.695827,8.868321],['Algol',47.042218,40.955646],
-['Aldebaran',68.980163,16.509302],['Baten Kaitos',26.017354,-10.335044],
-['Procyon',114.825497,5.224987],['Sirius',101.287155,-16.716116],
-['Alphard',141.896847,-8.658602],['Deneb',310.357979,45.280338],
-['Diphda',10.897379,-17.986606],['Vega',279.234735,38.783689],
-['Alkaid',206.885157,49.313268],['Alphecca',233.672213,26.714693],
-['Spica',201.298247,-11.161319],['Capella',79.172328,45.997991]]
-    
-def Calculate():
-    print('BASIC CIRCLES')
-    print('\tx\ty\tr')
-    Scale             = (1 - sind(Obliquity)) / cosd(Obliquity)
-    Equator_r         = Capric_r * Scale
-    Cancer_r          = Capric_r * Scale**2
-    
-    Horizon_x         = 0
-    Horizon_y         = Capric_r * Scale / tand(Latitude)
-    Horizon_r         = Capric_r * Scale / sind(Latitude)
-    
-    Zenith_x          = 0
-    Zenith_y          = Capric_r * Scale * tand((90-Latitude)/2)
-    print('Capricorn\t0\t0'+ abc(Capric_r)) 
-    print('Equator\t0\t0'  + abc(Equator_r)) 
-    print('Cancer\t0\t0'   + abc(Cancer_r))
-    print('Horizon\t0'     + abc(Horizon_y) + abc(Horizon_r)) 
-    print('Zenith\t0'      + abc(Zenith_y)  + abc(0)) 
-    
 # SPDX-License-Identifier: CC0-1.0
 # this software released into the public domain under CC0 1.0
 
